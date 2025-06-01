@@ -7,8 +7,16 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 
 // Middleware
-app.use(cors());
+// Update CORS configuration
+app.use(cors({
+  origin: ['http://localhost:3000', 'http://localhost:3001'],
+  credentials: true
+}));
 app.use(express.json());
+app.get('/', (req, res) => {
+  res.send('API is running');
+});
+
 
 // Import routes
 const tableRoutes = require('./routes/tableRoutes');
