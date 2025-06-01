@@ -1,0 +1,84 @@
+.tables {
+  background: white;
+  border: 1px solid #d9d9d9;
+}
+
+
+.tables-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.table-legend {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-size: 12px;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.legend-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.legend-dot.reserved {
+  background-color: #3dc35f;
+}
+
+.legend-dot.available {
+  background-color: #bababa;
+}
+
+.legend-text {
+  color: #666666;
+}
+
+.table-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 46.07px);
+  gap: 9px;
+  padding: 10px;
+}
+
+.table-cell {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3.66789px 9.53651px;
+  gap: 3.67px;
+  width: 46.07px;
+  height: 39.34px;
+  background: #FFFFFF;
+  border: 0.366789px solid #BABABA;
+  border-radius: 2.20073px;
+}
+
+.table-name {
+  font-size: 10px;
+  text-align: center;
+  width: 100%;
+}
+
+.table-cell.reserved {
+  background: #FFE2E2;
+  border-color: #FF9999;
+}
+
+.table-cell.available {
+  background: #FFFFFF;
+}
+
+.table-cell.occupied {
+  background-color: #f0f0f0;
+  color: #2a2a2a;
+}

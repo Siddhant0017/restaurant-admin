@@ -1,0 +1,79 @@
+.sidebar-btn {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  margin-bottom: 16px;
+}
+
+.sidebar-bg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+.sidebar-icon {
+  position: relative;
+  z-index: 1;
+  width: 24px;
+  height: 24px;
+}
+
+/* Individual background styles */
+.dashboard-bg {
+  background-size: cover;
+  border-radius: 12px;
+  opacity: 0.8;
+}
+
+.tables-bg {
+  background-size: contain;
+  border-radius: 8px;
+  opacity: 0.9;
+}
+
+.orderline-bg {
+  background-position: center;
+  border-radius: 10px;
+  opacity: 0.85;
+}
+
+.userview-bg {
+  background-repeat: no-repeat;
+  border-radius: 6px;
+  opacity: 0.9;
+}
+
+.sidebar-btn.active .sidebar-bg {
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+
+.sidebar-btn:hover {
+  background-color: #f0f0f0;
+  color: #000;
+}
+
+.sidebar-btn.active {
+  background-color: #ddd;
+  color: #000;
+  font-weight: bold;
+}
+
+.sidebar {
+  width: 60px;
+  background-color: #fff;
+  border-right: 1px solid #ddd;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px 0;
+}
+
+.sidebar-icon {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+}

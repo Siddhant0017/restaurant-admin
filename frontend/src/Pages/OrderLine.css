@@ -1,0 +1,402 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.order-line {
+  padding: 20px;
+}
+
+.orders-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(247px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+.order-card-container {
+  position: relative;
+  width: 247px;
+  height: 330px;
+  border-radius: 15px;
+  border: none;
+}
+
+.order-card-container.dine-in {
+  background-color: #ffe3bb;
+}
+
+.order-card-container.done-served {
+  background-color: #B9F8C9 ;
+}
+
+.order-card-container.take-away {
+  background-color: #C2D4D9;
+}
+
+.status-badge-bottom {
+  position: absolute;
+  bottom: 10px;
+  left: 70px;
+  display: inline-flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.processing-badge {
+  width: 107px;
+  height: 30px;
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 16px;
+}
+
+.processing-badge.dine-in {
+  background-color: #fcc373;
+}
+
+.processing-badge.done-served {
+  background-color: #B9F8C9 ;
+}
+
+.processing-badge.take-away {
+  background-color: #C2D4D9;
+}
+
+.processing-text {
+  font-weight: bold;
+  font-size: 10px;
+  margin-right: 8px;
+  color: #d77300;
+}
+
+.processing-badge.done-served .processing-text {
+  color: #0E912F;
+}
+
+.processing-badge.take-away .processing-text {
+  color: #3B413D;
+}
+
+.time-icon {
+  width: 9px;
+  height: 15px;
+}
+
+
+.order-items-section {
+  position: absolute;
+  width: 218px;
+  height: 150px;
+  top: 120px;
+  left: 14px;
+  padding: 0;
+}
+
+.items-container-white {
+  height: 150px;
+  background-color: white;
+  border-radius: 10px;
+  padding: 8px;
+  position: relative;
+}
+
+.item-row {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 12px;
+  position: relative;
+}
+
+.item-quantity {
+  width: 19px;
+  font-size: 10px;
+  text-align: right;
+  line-height: 15px;
+  color: black;
+  margin-right: 8px;
+  flex-shrink: 0;
+}
+
+.item-name {
+  font-size: 8.5px;
+  line-height: 12.8px;
+  color: black;
+  flex: 1;
+}
+
+.item-note {
+  font-size: 8.5px;
+  line-height: 12.8px;
+  color: white;
+  background-color: #666;
+  padding: 2px 4px;
+  border-radius: 3px;
+  margin-top: 4px;
+  margin-left: 27px;
+}
+
+/* Order header section */
+.order-header-section {
+  position: absolute;
+  width: 225px;
+  height: 90px;
+  top: 10px;
+  left: 15px;
+  padding: 0;
+}
+
+.header-container-white {
+  position: relative;
+  width: 217px;
+  height: 90px;
+  background-color: white;
+  border-radius: 10px;
+  padding: 12px;
+}
+
+/* Status badge in header */
+.status-badge-header {
+  position: absolute;
+  width: 99px;
+  height: 50px;
+  top: 8px;
+  right: 8px;
+}
+
+.status-pill {
+  position: relative;
+  width: 95px;
+  height: 50px;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.status-pill.dine-in {
+  background-color: #ffe3bb;
+}
+
+.status-pill.done-served {
+  background-color: #B9F8C9;
+}
+
+.status-pill.take-away {
+  background-color: #C2D4D9;
+}
+
+.status-label {
+  font-size: 10px;
+  line-height: 15px;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.status-pill.dine-in .status-label {
+  color: #ff9500;
+}
+
+.status-pill.done-served .status-label {
+  color: #B9F8C9;
+}
+
+.status-pill.take-away .status-label {
+  color: #C2D4D9;
+}
+
+.status-subtitle {
+  font-size: 8.5px;
+  line-height: 12.8px;
+  color: #2c2c2e;
+  white-space: nowrap;
+}
+
+/* Order number section */
+.order-number-section {
+  display: flex;
+  align-items: center;
+  margin-bottom: 4px;
+}
+
+.vector-icon {
+  width: 12px;
+  height: 20px;
+  margin-right: 8px;
+}
+
+.order-number-text {
+  font-size: 15px;
+  line-height: 22.5px;
+  text-align: right;
+  color: #101010;
+  white-space: nowrap;
+}
+
+/* Table and time info */
+.table-time-info {
+  margin-bottom: 8px;
+}
+
+.table-number,
+.order-time {
+  font-size: 8px;
+  line-height: 12px;
+  color: black;
+  white-space: nowrap;
+  margin-bottom: 4px;
+}
+
+/* Item count */
+.item-count-display {
+  position: absolute;
+  width: 44px;
+  bottom: 8px;
+  left: 12px;
+  font-size: 13.5px;
+  line-height: 20.2px;
+  color: black;
+}
+
+/* Status icon in processing badge */
+.status-icon {
+  width: 9px;
+  height: 15px;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .orders-container {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  }
+}
+
+@media (max-width: 900px) {
+  .orders-container {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  .order-line {
+    padding: 16px;
+  }
+  
+  .orders-container {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    padding: 16px;
+  }
+  
+  .order-card-container {
+    width: 100%;
+    max-width: 320px;
+    margin: 0 auto;
+  }
+}
+
+
+.order-card-container.served {
+  background-color: #B9F8C9;
+}
+
+.order-card-container.takeaway {
+  background-color: #e1f0f5;
+}
+
+
+.processing-badge.served {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.processing-badge.takeaway {
+  background-color: #C2D4D9;
+  color: white;
+}
+
+
+.status-pill.served {
+  background-color: rgba(76, 175, 80, 0.1);
+  color: #4CAF50;
+}
+
+.status-pill.takeaway {
+  background-color: rgba(33, 150, 243, 0.1);
+  color: #C2D4D9;
+}
+
+/* Status icon styling */
+.status-icon {
+  width: 20px;
+  height: 20px;
+  margin-left: 8px;
+}
+
+
+.processing-badge {
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.processing-badge:hover {
+  transform: scale(1.05);
+}
+
+/* Update served state styles */
+.order-card-container.served {
+  background-color: #B9F8C9;
+}
+
+.processing-badge.served {
+  background-color: #31FF65;
+  color: #0E912F;
+}
+
+.status-pill.served {
+  background-color: rgba(76, 175, 80, 0.1);
+  color: #4CAF50;
+}
+
+
+.order-card-container.delivered {
+  background-color: #e1f0f5;
+}
+
+.processing-badge.delivered {
+  background-color: #9BAEB3;
+  color: #3B413D;
+}
+
+.status-pill.delivered {
+  background-color: rgba(33, 150, 243, 0.1);
+  color: #3B413D;
+}
+
+
+.processing-badge.delivered .processing-text,
+.processing-badge.served .processing-text {
+  color: white;
+}
+
+
+.order-card-container.pending-takeaway {
+  background-color: #C2D4D9;
+}
+
+.processing-badge.pending-takeaway {
+  background-color: #C2D4D9;
+}
+
+.status-pill.pending-takeaway {
+  background-color: #e1f0f5;
+  color: #1e40af;
+}

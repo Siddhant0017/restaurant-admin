@@ -1,0 +1,81 @@
+.metrics {
+  display: grid;
+  grid-template-columns: repeat(4, 0.3fr);
+  gap: 1px;
+  margin-bottom: 24px;
+  position: relative;
+  left: 40px;
+}
+
+.metric-card {
+  box-sizing: border-box;
+  position: relative;
+  width: 263px;
+  height: 140px;
+  background: #F0F5F3;
+  border: 2px solid #D9D9D9;
+  border-radius: 8px;
+}
+
+.metric-icon {
+  position: absolute;
+  width: 76px;
+  height: 130px;
+  right: 156px;
+  bottom: 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.rupees-icon {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  left: 1px;
+  top: 40px;
+  z-index: 1; 
+}
+
+.metric-icon img {
+  width: 76px;
+  height: 55px;
+  border-radius: 38px;
+  object-fit: contain;
+}
+
+.metric-frame {
+  position: absolute;
+  width: 162px;
+  height: 5px;
+  left: 130px;
+  top: 70px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.metric-value {
+  font-size: 24px;
+  font-weight: bold;
+  color: #2a2a2a;
+  margin-bottom: 4px;
+}
+
+.metric-label {
+  font-size: 12px;
+  color: #666666;
+  font-weight: 500;
+}
+
+@media (max-width: 768px) {
+  .metrics {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .metrics {
+    grid-template-columns: 1fr;
+  }
+}

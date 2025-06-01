@@ -1,0 +1,49 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+  padding: 24px 32px;
+  margin-bottom: 32px;
+}
+
+.header-title {
+  font-size: 24px;
+  font-weight: 600;
+  color: #2a2a2a;
+  margin: 0;
+}
+
+.header-filter .select-trigger {
+  width: 192px;
+}
+
+.select-arrow {
+  font-size: 12px;
+  color: #666666;
+  transition: transform 0.2s ease;
+}
+
+.select.active .select-arrow {
+  transform: rotate(180deg);
+}
+
+/* Add styles for the blur effect */
+.blur-background {
+  filter: blur(4px);
+  pointer-events: none;
+  transition: filter 0.3s ease;
+  opacity: 0.4;
+}
+.focused-section {
+  filter: none;
+  pointer-events: auto;
+  opacity: 1;
+}
+
+.active-section {
+  filter: none;
+  pointer-events: auto;
+}
