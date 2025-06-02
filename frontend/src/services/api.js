@@ -29,11 +29,10 @@ export const updateOrderStatus = (id, status) => api.put(`/orders/${id}`, { stat
 export const getDashboardMetrics = () => api.get('/dashboard/metrics');
 export const getRevenueChartData = (period) => api.get(`/dashboard/revenue-chart?period=${period}`);
 export const getOrderSummary = (period) => api.get(`/dashboard/order-summary?period=${period}`);
-// Add these new endpoints
 export const getChefOrders = () => api.get('/dashboard/chef-orders');
 export const assignOrderToChef = (orderId) => api.post('/dashboard/assign-chef', { orderId });
 
-// Add these menu item endpoints
+// menu item endpoints
 export const getMenuItems = (category) => api.get(`/menu-items?category=${category}`);
 export const createMenuItem = (itemData) => api.post('/menu-items', itemData);
 export const updateMenuItem = (id, itemData) => api.put(`/menu-items/${id}`, itemData);
