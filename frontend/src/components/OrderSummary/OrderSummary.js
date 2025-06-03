@@ -44,11 +44,13 @@ const OrderSummary = () => {
 
   
   const getStrokeDasharray = () => {
-    if (orderData && orderData.length > 0) {
-      const percentage = parseInt(orderData[0].percentage, 10) || 0;
-      return `${percentage}, 100`;
+    if (orderData && orderData.length >= 3) {
+      const served = parseInt(orderData[0].percentage, 10) || 0;
+      const dineIn = parseInt(orderData[1].percentage, 10) || 0;
+      const takeAway = parseInt(orderData[2].percentage, 10) || 0;
+      return `${served},${dineIn},${takeAway},100`;
     }
-    return '60, 100'; // Default value
+    return '33,33,33,100'; // Default equal segments
   };
 
   return (
@@ -97,13 +99,19 @@ const OrderSummary = () => {
               stroke="#f0f0f0"
               strokeWidth="3"
             />
-            <path
-              d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
-              fill="none"
-              stroke="#2a2a2a"
-              strokeWidth="3"
-              strokeDasharray={getStrokeDasharray()}
-            />
+            {orderData.map((item, index) => (
+              <path
+                key={item.label}
+                d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
+                fill="none"
+                stroke={item.color}
+                strokeWidth="3"
+                strokeDasharray={getStrokeDasharray()}
+                strokeDashoffset={index === 0 ? 0 : 
+                               index === 1 ? -parseInt(orderData[0].percentage, 10) : 
+                               -(parseInt(orderData[0].percentage, 10) + parseInt(orderData[1].percentage, 10))}
+              />
+            ))}
           </svg>
         </div>
 

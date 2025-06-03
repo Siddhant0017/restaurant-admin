@@ -17,7 +17,12 @@ const ChefOrders = () => {
   const fetchChefOrders = async () => {
     try {
       const response = await getChefOrders();
-      setChefData(response.data);
+      const validatedData = response.data.map(chef => ({
+        id: chef.id || Math.random().toString(36).substring(2, 9),
+        name: chef.name || 'Unknown Chef',
+        orders: chef.orders || 0
+      }));
+      setChefData(validatedData);
     } catch (error) {
       console.error('Error fetching chef orders:', error);
     }
@@ -30,8 +35,8 @@ const ChefOrders = () => {
           <div className="chef-column">
             <h3 className="chef-header">Chef Name</h3>
             <div className="chef-list">
-              {chefData.map((chef) => (
-                <div key={chef.id} className="chef-name">
+              {chefData.map((chef, index) => (
+                <div key={`name-${chef.id || index}`} className="chef-name">
                   {chef.name}
                 </div>
               ))}
@@ -40,8 +45,8 @@ const ChefOrders = () => {
           <div className="orders-column">
             <h3 className="chef-header">Order Taken</h3>
             <div className="orders-list">
-              {chefData.map((chef) => (
-                <div key={chef.id} className="order-count">
+              {chefData.map((chef, index) => (
+                <div key={`orders-${chef.id || index}`} className="order-count">
                   {chef.orders}
                 </div>
               ))}

@@ -44,10 +44,18 @@ const UserView = () => {
       if (imageFile) {
         const formData = new FormData();
         formData.append('image', imageFile);
-        const uploadResponse = await axios.post('http://localhost:5000/api/upload', formData);
+        const uploadResponse = await axios.post(
+          `${process.env.REACT_APP_API_URL}/upload`,
+          formData,
+          {
+            headers: {
+              'Content-Type': 'multipart/form-data',
+            },
+          }
+        );
         imageUrl = uploadResponse.data.imageUrl;
       }
-
+  
       const response = await createMenuItem({
         ...newItem,
         image: imageUrl,
@@ -65,14 +73,22 @@ const UserView = () => {
   const handleEditItem = async (id, updatedItem, imageFile) => {
     try {
       let imageUrl = updatedItem.image;
-
+  
       if (imageFile) {
         const formData = new FormData();
         formData.append('image', imageFile);
-        const uploadResponse = await axios.post('http://localhost:5000/api/upload', formData);
+        const uploadResponse = await axios.post(
+          `${process.env.REACT_APP_API_URL}/upload`,
+          formData,
+          {
+            headers: {
+              'Content-Type': 'multipart/form-data',
+            },
+          }
+        );
         imageUrl = uploadResponse.data.imageUrl;
       }
-
+  
       const response = await updateMenuItem(id, { ...updatedItem, image: imageUrl });
       const updatedList = menuItems.map(item => item._id === id ? response.data : item);
       setMenuItems(updatedList);
