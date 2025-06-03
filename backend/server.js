@@ -1,4 +1,5 @@
 const express = require('express');
+const path = require('path');
 const mongoose = require('mongoose');
 const cors = require('cors');
 require('dotenv').config();
@@ -13,6 +14,7 @@ app.use(cors({
   credentials: true
 }));
 app.use(express.json());
+app.use('/uploads', express.static(path.join(__dirname, 'public/uploads')));
 app.get('/', (req, res) => {
   res.send('API is running');
 });
@@ -44,3 +46,6 @@ mongoose.connect(process.env.MONGO_URI)
   .catch(err => {
     console.error('MongoDB connection error:', err);
   });
+
+// Serve static files from the uploads directory
+
